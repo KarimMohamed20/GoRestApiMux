@@ -9,8 +9,6 @@ import (
 	"strconv"
 )
 
-
-
 type Books struct {
 	ID string `json:"id"`
 	Isbn string `json:"isbn"`
@@ -19,11 +17,6 @@ type Books struct {
 
 }
 
-
-
-
-
-
 var books []Books
 
 // Get All Books
@@ -31,8 +24,6 @@ func getBooks(w http.ResponseWriter, r * http.Request) {
 	w.Header().Set("Content-Type","application/json")
 	json.NewEncoder(w).Encode(books)
 }
-
-
 
 // Get Single Book
 func getBook(w http.ResponseWriter, r * http.Request) {
@@ -48,7 +39,6 @@ func getBook(w http.ResponseWriter, r * http.Request) {
 	json.NewEncoder(w).Encode(&Books{})
 }
 
-
 // Create A New Book
 func createBook(w http.ResponseWriter, r * http.Request) {
 	w.Header().Set("Content-Type","application/json")
@@ -58,7 +48,6 @@ func createBook(w http.ResponseWriter, r * http.Request) {
 	books = append(books, book)
 	json.NewEncoder(w).Encode(book)
 }
-
 
 // Update A Book
 func updateBook(w http.ResponseWriter, r * http.Request) {
@@ -76,7 +65,6 @@ func updateBook(w http.ResponseWriter, r * http.Request) {
 		}
 	}
 }
-
 
 // Delete A book
 func deleteBook(w http.ResponseWriter, r * http.Request) {
